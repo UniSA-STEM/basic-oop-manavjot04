@@ -21,8 +21,12 @@ class Asset(ABC):
         return self._name
 
     @property
-    def encrypted(self): #this for keeping the asset encrypted
+    def encrypted(self): #This for keeping the asset encrypted
         return self._encrypted
+
+    @encrypted.setter
+    def encrypted(self, value):
+        self._encrypted = value
 
     @abstractmethod
     def __str__(self):
@@ -30,3 +34,38 @@ class Asset(ABC):
         if self._encrypted:
             result = result + " [Encrypted]"
         return result
+
+class CryptoToken(Asset):
+    def __init__(self, encrypted=False):
+        super().__init__("CryptoToken", "Used to acquire or repair rigs.", encrypted)
+
+    def __str__(self):
+        return super().__str__()
+
+class DataSpike(Asset): # The Asset that is to be used in battle to damage rig.
+    def __init__(self, encrypted=False):
+        super().__init__("DataSpike", "Used in battles.", encrypted)
+
+    def __str__(self):
+        return super().__str__()
+
+class RemovableDrive(Asset): #This used for gtting the things out of rig
+    def __init__(self, encrypted=False):
+        super().__init__("RemovableDrive", "Used for extraction.", encrypted)
+
+    def __str__(self):
+        return super().__str__()
+
+class SecurityChip(Asset): #This is used to encrypt or decrypt asset
+    def __init__(self, encrypted=False):
+        super().__init__("SecurityChip", "Used to encrypt or decrypt assets.", encrypted)
+
+    def __str__(self):
+        return super().__str__()
+
+class HardwarePatch(Asset): #This is for the upgration of the rigs
+    def __init__(self, encrypted=False):
+        super().__init__("HardwarePatch", "Used to upgrade rigs.", encrypted)
+
+    def __str__(self):
+        return super().__str__()
