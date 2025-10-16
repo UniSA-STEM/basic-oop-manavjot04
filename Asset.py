@@ -11,7 +11,7 @@ from abc import ABC, abstractmethod
 
 class Asset(ABC):
     
-    def __init__(self, name, description, encrypted=False): #For initializing an asset 
+    def __init__(self, name, description, encrypted=False):
         self._name = name
         self._description = description
         self._encrypted = encrypted
