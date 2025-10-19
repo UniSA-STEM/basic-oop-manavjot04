@@ -28,7 +28,7 @@ class Rig:
         return self._storage
 
     @property
-    def broken(self): #To chech if the rig is broken or not
+    def broken(self):#To chech if the rig is broken or not
         return self._broken
 
     def take_hit(self): #For the damage by the hit
@@ -44,7 +44,7 @@ class Rig:
         print(f"{self._name} does not need repair.")
         return False
 
-    def upgrade(self): #To Upgrade
+    def upgrade(self): #To upgrade
         self._upgrade_level += 1
         self._max_storage = 5 + self._upgrade_level * 2
         print(f"{self._name} upgraded to level {self._upgrade_level}.")
@@ -70,3 +70,5 @@ class Rig:
     def __str__(self):
         assets_str = ", ".join(str(asset) for asset in self._storage)
         return f"{self._name} - {self.get_condition()} - Stored: {assets_str}"
+    
+

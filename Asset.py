@@ -25,7 +25,7 @@ class Asset(ABC):
         return self._encrypted
 
     @encrypted.setter
-    def encrypted(self, value):
+    def encrypted(self, value): 
         self._encrypted = value
 
     @abstractmethod
@@ -42,14 +42,14 @@ class CryptoToken(Asset):
     def __str__(self):
         return super().__str__()
 
-class DataSpike(Asset): # The Asset that is to be used in battle to damage rig.
-    def __init__(self, encrypted=False):
+class DataSpike(Asset):
+    def __init__(self, encrypted=False): # The Asset that is to be used in battle to damage rig.
         super().__init__("DataSpike", "Used in battles.", encrypted)
 
     def __str__(self):
         return super().__str__()
 
-class RemovableDrive(Asset): #This used for gtting the things out of rig
+class RemovableDrive(Asset): ##This used for gtting the things out of rig
     def __init__(self, encrypted=False):
         super().__init__("RemovableDrive", "Used for extraction.", encrypted)
 
@@ -69,3 +69,5 @@ class HardwarePatch(Asset): #This is for the upgration of the rigs
 
     def __str__(self):
         return super().__str__()
+    
+

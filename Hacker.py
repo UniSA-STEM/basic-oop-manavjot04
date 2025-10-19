@@ -9,7 +9,8 @@ This is my own work as defined by the University's Academic Misconduct Policy.
 from Asset import CryptoToken, DataSpike, RemovableDrive, SecurityChip, HardwarePatch
 from Rig import Rig
 
-class Hacker:    
+class Hacker:
+    
     def __init__(self, name):
         self._name = name
         self._inventory = [CryptoToken()]
@@ -30,7 +31,6 @@ class Hacker:
         return True
 
     def _find_asset(self, name, inventory=True, rig_storage=False): # To find and remove an asset by name from inventory or rig storage.
-        
         if inventory:
             for i, asset in enumerate(self._inventory):
                 if asset.name == name:
@@ -98,7 +98,7 @@ class Hacker:
         print(f"{self._name} decrypted {asset.name}.")
         return True
 
-    def upgrade_rig(self): #this Upgrades the hacker's rig using a HardwarePatch.
+    def upgrade_rig(self): # This Upgrades the hacker's rig using a HardwarePatch.
         if self._rig is None:
             print(f"{self._name} has no rig to upgrade.")
             return False
@@ -113,3 +113,4 @@ class Hacker:
         rig_name = self._rig.name if self._rig else "None"
         inventory_str = ", ".join(str(asset) for asset in self._inventory)
         return f"Hacker: {self._name}, Rig: {rig_name}, Trace: {self._trace_level}, Inventory: {inventory_str}"
+
