@@ -1,12 +1,11 @@
 """
 File: Asset.py
-Description: <A brief description of this Python module.>
+Description: Defines the abstract Asset class and its subclasses for digital assets in a cyberpunk hacking simulation.
 Author: Manavjot Singh Dutta
 ID: 110430330
 Username: Dutmy005
 This is my own work as defined by the University's Academic Misconduct Policy.
 """
-
 from abc import ABC, abstractmethod
 
 class Asset(ABC):
@@ -17,7 +16,7 @@ class Asset(ABC):
         self._encrypted = encrypted
 
     @property
-    def name(self): #This is for name of the asset
+    def name(self):  #This is for name of the asset
         return self._name
 
     @property
@@ -25,7 +24,7 @@ class Asset(ABC):
         return self._encrypted
 
     @encrypted.setter
-    def encrypted(self, value): 
+    def encrypted(self, value):
         self._encrypted = value
 
     @abstractmethod
@@ -42,14 +41,14 @@ class CryptoToken(Asset):
     def __str__(self):
         return super().__str__()
 
-class DataSpike(Asset):
-    def __init__(self, encrypted=False): # The Asset that is to be used in battle to damage rig.
+class DataSpike(Asset):  # The Asset that is to be used in battle to damage rig.
+    def __init__(self, encrypted=False):
         super().__init__("DataSpike", "Used in battles.", encrypted)
 
     def __str__(self):
         return super().__str__()
 
-class RemovableDrive(Asset): ##This used for gtting the things out of rig
+class RemovableDrive(Asset): #This used for gtting the things out of rig
     def __init__(self, encrypted=False):
         super().__init__("RemovableDrive", "Used for extraction.", encrypted)
 
@@ -70,4 +69,3 @@ class HardwarePatch(Asset): #This is for the upgration of the rigs
     def __str__(self):
         return super().__str__()
     
-

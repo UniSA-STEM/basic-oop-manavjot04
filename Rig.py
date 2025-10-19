@@ -1,6 +1,6 @@
 """
 File: Rig.py
-Description: <A brief description of this Python module.>
+Description: Defines the Rig class for representing a hacker's computer in a cyberpunk simulation
 Author: Manavjot Singh Dutta
 ID: 110430330
 Username: dutmy005
@@ -28,15 +28,15 @@ class Rig:
         return self._storage
 
     @property
-    def broken(self):#To chech if the rig is broken or not
+    def broken(self): #To chech if the rig is broken or not
         return self._broken
 
-    def take_hit(self): #For the damage by the hit
+    def take_hit(self):  #For the damage by the hit
         self._damage += 1
         if self._damage >= (2 + self._upgrade_level):
             self._broken = True
 
-    def repair(self): #For the repair
+    def repair(self):  #For the repair
         if self._damage > 0 or self._broken:
             self._damage = 0
             self._broken = False
@@ -70,5 +70,3 @@ class Rig:
     def __str__(self):
         assets_str = ", ".join(str(asset) for asset in self._storage)
         return f"{self._name} - {self.get_condition()} - Stored: {assets_str}"
-    
-
